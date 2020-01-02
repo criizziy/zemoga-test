@@ -1,26 +1,45 @@
-import React from 'react';
+import React, { Component } from 'react';
 import logo from './logo.svg';
-import './App.css';
+import 'bootstrap/dist/css/bootstrap.min.css'
+import './dist/css/main.css';
+import Home from './pages/home/home';
+import {actGetUser} from './actions/auth';
+import {connect} from 'react-redux';
+import Loading from './components/loading';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component {
+
+  constructor(props) {
+    super(props)
+  }
+
+  async componentDidMount(){
+    await this.props.actGetContent();
+  }
+
+  render() {
+    if(!this.props.isFetching)
+      return <Home/>;
+    else
+      return <Loading/>
+  }
+
 }
 
-export default App;
+function mapStateToProps(state) {
+  console.log(state)
+  return {
+    user: state.login.user,
+    isFetching: state.login.isFetching,
+  }
+}
+
+function mapDispatchToProps(dispatch) {
+  return {
+    actGetContent: () => {
+      dispatch(actGetContent(dispatch))
+    }
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(App)
