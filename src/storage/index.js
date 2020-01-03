@@ -36,6 +36,42 @@ class User {
     }
 }
 
+class Storage {
+    get(name) {
+        return new Promise(async (resolve, reject) => {
+            try {
+                const value = await AsyncStorage.getItem(name);
+                if (typeof value !== "undefined" && value !== null) {
+                    resolve(JSON.parse(value))
+                } else {
+                    resolve(null);
+                }
+            } catch (e) {
+                reject({code: '12', message: 'error', e: e});
+            }
+        })
+    }
+
+    set(name, data) {
+        return new Promise(async (resolve, reject) => {
+            try {
+                await AsyncStorage.setItem(name, JSON.stringify(data))
+            } catch (e) {
+                reject({code: '13', message: 'error', e: e});
+            }
+        })
+    }
+    clear(){
+        return new Promise(async (resolve,reject) =>{
+            try{
+                await AsyncStorage.clear();
+            }catch (e) {
+                reject({code: '14', message: 'error', e: e});
+            }
+        })
+    }
+}
 
 
 export const user = new User();
+export const storage = new Storage();

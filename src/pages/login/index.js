@@ -11,7 +11,7 @@ class Login extends Component {
                     <Header/>
                 </div>
                 <div className='col-12 p-0'>
-                    <h2>login</h2>
+                    <h2 className="center_txt">login</h2>
                 </div>
             </div>
         );

@@ -70,11 +70,11 @@ export const actUpdateTrial= (id, data) => async dispatch => {
         });
 
         await updateTrial(id, data); 
-        const res = await getActiveTrial();
+        const res = await updateTrial(id, data);
 
         dispatch({
             type: ACTIVE_TRIAL_SUCCESS,
-            payload: data
+            payload: res
         });
 
     } catch (e) {

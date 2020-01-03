@@ -1,4 +1,5 @@
 import axios from 'axios';
+import {storage} from '../../storage';
 
 let data = [
     {
@@ -130,16 +131,19 @@ class Trials {
 
     }
 
-    getActiveTrial() {
-        return trial;
-
+    async getActiveTrial() {
+        const data = await storage.get('trial')
+        return data ? data : trial;
         return axios({
             method: 'get',
             url: 'active_trial',
         })
     }
 
-    updateTrial(id, data){
+    async updateTrial(id, data){
+        data.qualificated = false;
+        storage.set('trial', data);
+        data.qualificated = true;
         return data;
         return axios({
             method: 'post',

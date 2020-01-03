@@ -11,7 +11,7 @@ class Works extends Component {
                     <Header/>
                 </div>
                 <div className='col-12 p-0'>
-                    <h2>How it works !</h2> 
+                    <h2 className="center_txt">How it works !</h2> 
                 </div>
             </div>
         );
