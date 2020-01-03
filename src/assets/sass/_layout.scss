@@ -42,7 +42,7 @@
 /* banner */
 #banner{
     position: relative;
-    height: 80vh;
+    height: 90vh;
     .banner{
         width: 100%;
         height: 100%;
@@ -56,6 +56,7 @@
     .opinion{
         position: absolute;
         width: 35%;
+        max-width: 450px;
         color: white;
         top: 55%;
         left: 10%;
@@ -63,7 +64,7 @@
 
         &__wrapper{
             padding: 20px 30px;
-            background: rgba(0, 0, 0, 0.69);
+            background: rgba(51, 51, 51, 0.89);
         }
 
         &__title{
@@ -163,6 +164,109 @@
         }
     }
 
+    .voted{
+
+        &__wrapper{
+            position: absolute;
+            width: 40%;
+            max-width: 450px;
+            color: white;
+            top: 55%;
+            left: 10%;
+            transform: translate(0%, -50%);
+            padding: 20px 30px;
+            background: rgba(51, 51, 51, 0.89);
+        }
+
+        &__title{
+            font-weight: 300;
+            font-size: 25px;
+            margin-bottom: 20px;
+            strong{
+                font-weight: 400;
+            }
+        }
+
+        &__counted{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            div{
+                background-color: #1cbbb4;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                padding: 20px;
+                img{
+                    height: 40px;
+                    min-width: 40px;
+                }
+            }
+            p{
+                font-size: 25px;
+                margin: 0 20px;
+                line-height: 1;
+                font-weight: 500;
+            }
+        }
+
+        &__txt{
+            font-size: 15px;
+            font-weight: 300;
+            margin: 20px 0;
+        }
+
+        &__btn{
+            border: solid 1.5px white;
+            background: transparent;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 15px;
+            padding: 8px 20px;
+            margin: 0 auto 20px;
+            font-weight: 300;
+            img{
+                height: 15px;
+                margin-right: 10px;
+            }
+        }
+
+        &__qualification{
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            position: absolute;
+            bottom: 0;
+            left: 0; 
+            div{
+                width: 50%;
+                padding: 15px 3%;
+                display: flex;
+                align-items: center;
+                img{
+                    height: 40px;
+                }
+                &.like{
+                    background-color: rgba(28, 187, 180, 0.7);
+                    justify-content: flex-end;
+                }
+                &.dislike{
+                    background-color: rgba(255, 173, 29, 0.7);
+                    justify-content: flex-start;
+                }
+                p{
+                    margin:0 10px;
+                    color: white;
+                    font-weight: 300;
+                    font-size: 30px;
+                }
+            }
+        }
+
+    }
+
 }
 /* end banner */
 
@@ -244,7 +348,7 @@
                 &.like{
                     background-color: #1cbbb4;
                 }
-                &.unlike{
+                &.dislike{
                     background-color: #ffad1d;
                 }
                 img{
@@ -293,8 +397,8 @@
                 &.like{
                     background-color: rgba(28, 187, 180, 0.7);
                 }
-                &.unlike{
-                    background-color: rgba(255, 173, 29, 0.7);
+                &.dislike{
+                    background-color: rgba(255, 173, 29, 0.7); 
                     justify-content: flex-end;
                 }
                 p{
@@ -368,3 +472,102 @@
 
 }
 /* end footer */
+
+
+/* comments */
+#comments{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    .comment{
+        width: 30%;
+        margin-bottom: 4%;
+        &__head{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: white;
+            padding: 10px 20px;
+            img{
+                height: 30px;
+                margin: auto 0;
+            }
+        }
+
+        &__title{
+            h2{
+                font-size: 25px;
+                font-weight: 600;
+                margin: 0;
+                text-transform: capitalize;
+            }
+            p{
+                font-size: 13px;
+                font-weight: 300;
+                margin: 0;
+            }   
+        }
+
+        &__body{
+            background: #ebebeb;
+            padding: 5%;
+            z-index: 2;
+            p{
+                margin: 0;
+                font-weight: 300;
+                font-size: 13;
+            }
+        }
+
+    }
+
+    .filters{
+        width: 100%;
+        &__title{
+            margin: 20px 0 0;
+            font-weight: 300;
+            font-size: 2em;
+            width: 100%;
+        }
+
+        &__options{
+            display: flex;
+            list-style: none;
+            padding:0;
+            align-items: center;
+            margin: 30px 0;
+
+            li{
+                margin: 0 10px;
+                font-size: 18px;
+                color: #4c4c4c;
+                &:first-child{
+                    margin-left: 0;
+                    font-weight: 300;
+                }
+                .all{
+                    color: #4c4c4c;
+                    border: solid 1px #4c4c4c;
+                    background-color: transparent;
+                }
+                img{
+                    margin-right: 10px;
+                    height: 15px;
+                }
+                .like{
+                    color: #1cbbb4;
+                    background: transparent;
+                }
+                .dislike{
+                    color: #ffad1d;
+                    background: transparent;
+                }
+                .karma{
+                    color: #ca6fc3;
+                }
+            }
+        }
+
+    }
+}
+/* end comments */

@@ -6,24 +6,24 @@ import {connect} from 'react-redux';
 class RulingBox extends Component {
 
   render() {
-    const rulings = [];
-    if(!this.props.isFetching && this.props.rulings.length > 0) {
-        this.props.rulings.map( (el, i) => {
-            let total = parseInt(el.likes)+parseInt(el.unlikes);
+    const trials = [];
+    if(!this.props.isFetching && this.props.trials.length > 0) {
+        this.props.trials.map( (el, i) => {
+            let total = parseInt(el.likes)+parseInt(el.dislikes);
             let like = Math.round((parseInt(el.likes) * 100) / total);
-            let unlike = Math.round((parseInt(el.unlikes) * 100) / total);
-            rulings.push(
+            let dislike = Math.round((parseInt(el.dislikes) * 100) / total);
+            trials.push(
                 <div className="ruling" id={el.id}>
                     <img className="ruling__img" src={el.image} />
                     <img className="ruling__shadow" src={require('../../dist/img/shadow_box.png')} />
                     <div className="ruling__title">
-                        {like > unlike ?
+                        {like > dislike ?
                             <div className="like">
                                 <img src={require('../../dist/img/like.png')} />
                             </div>
                         :
-                            <div className="unlike">
-                                <img src={require('../../dist/img/unlike.png')} />
+                            <div className="dislike">
+                                <img src={require('../../dist/img/dislike.png')} />
                             </div>
                         }
                         <h2>{el.name}</h2>
@@ -37,9 +37,9 @@ class RulingBox extends Component {
                             <img src={require('../../dist/img/like.png')} />
                             <p>{like}%</p>
                         </div>
-                        <div className="unlike" style={{ width: unlike+'%' }}>
-                            <p>{unlike}%</p>
-                            <img src={require('../../dist/img/unlike.png')} />
+                        <div className="dislike" style={{ width: dislike+'%' }}>
+                            <p>{dislike}%</p>
+                            <img src={require('../../dist/img/dislike.png')} />
                         </div>
                     </div>
                 </div>
@@ -48,7 +48,7 @@ class RulingBox extends Component {
     }
     return (
         <div id="rulingBox">
-            {rulings}
+            {trials}
         </div>
     );
   }
@@ -57,8 +57,8 @@ class RulingBox extends Component {
 function mapStateToProps(state) {
     console.log(state)
     return {
-      rulings: state.rulings.data,
-      isFetching: state.rulings.isFetching
+      trials: state.trials.data,
+      isFetching: state.trials.isFetching
     }
   }
   

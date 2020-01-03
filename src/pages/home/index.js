@@ -4,6 +4,7 @@ import {connect} from 'react-redux';
 import Header from '../../components/header'
 import Footer from '../../components/footer'
 import Banner from '../../components/banner'
+import Comments from '../../components/comments'
 import RulingBox from '../../components/rulingBox'
 
 class Home extends Component {
@@ -27,6 +28,11 @@ class Home extends Component {
                     <div className='col-12 p-0'>
                         <Banner/>
                         <div className="content_wrapper">
+
+                            {!this.props.isFetching && this.props.trial && this.props.trial.qualificated && (
+                                <Comments/>
+                            )}
+                            
                             <div className="speaker">
                                 <h2 className="speaker__title">
                                     Speak out. Be heard. 
@@ -58,8 +64,8 @@ class Home extends Component {
 function mapStateToProps(state) {
     console.log(state)
     return {
-      user: state.login.user,
-      isFetching: state.login.isFetching,
+        trial: state.activeTrial.data,
+        isFetching: state.activeTrial.isFetching,
     }
   }
   

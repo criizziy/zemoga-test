@@ -1,11 +1,11 @@
 import {combineReducers} from "redux";
 import * as login from './auth/login';
-import * as rulings from './rulings';
+import * as trials from './trials';
 
 
 export default combineReducers(
     Object.assign(
         login,
-        rulings,
+        trials,
     )
 );

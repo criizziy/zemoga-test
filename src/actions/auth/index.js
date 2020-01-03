@@ -4,7 +4,7 @@ import {
     LOGIN,
 } from '../types';
 import {loginService} from '../../services/auth';
-import {user} from '../../utils/storage';
+import {user} from '../../storage';
 
 export const actGetUser = () => async dispatch => {
     try {

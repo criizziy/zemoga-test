@@ -1,6 +1,6 @@
 import axios from 'axios';
 import Auth from './auth';
-import Rulings from './rulings';
+import Trials from './trials';
 import {user} from "../storage";
 
 
@@ -35,7 +35,7 @@ axios.interceptors.response.use(response => {
 });
 
 export const auth = new Auth();
-export const rulings = new Rulings();
+export const trials = new Trials();
 
 
 

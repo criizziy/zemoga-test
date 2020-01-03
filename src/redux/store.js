@@ -12,7 +12,7 @@ const persistConfig = {
     storage: AsyncStorage,
     // Whitelist (Save Specific Reducers)
     blacklist: [
-        'rulings',
+        'trials',
     ],
 };
 

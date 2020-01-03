@@ -8,9 +8,9 @@ class Header extends Component {
         <img className="shadow" src={require('../../dist/img/shadow.png')}/>
         <img className="logo" src={require('../../dist/img/logo.png')}/>
         <ul className="nav">
-          <li><a href="">Past Trials</a></li>
-          <li><a href="">How it works</a></li>
-          <li><a href="">Login/Sign Up</a></li>
+          <li><a href="/">Past Trials</a></li>
+          <li><a href="/how-it-works">How it works</a></li>
+          <li><a href="/login">Login/Sign Up</a></li>
         </ul>
       </div>
     );

@@ -1,52 +1,85 @@
 import {
-    RULINGS,
-    RULINGS_ERROR,
-    RULINGS_SUCCESS,
+    TRIALS,
+    TRIALS_ERROR,
+    TRIALS_SUCCESS,
+    ACTIVE_TRIAL,
+    ACTIVE_TRIAL_ERROR,
+    ACTIVE_TRIAL_SUCCESS,
 } from '../types';
 import {
-    getRulings,
-    updateRuling,
-} from '../../services/rulings';
+    getTrials,
+    updateTrial,
+    getActiveTrial
+} from '../../services/trials';
 
 
-
-export const actGetRulings = () => async dispatch => {
+export const actGetActiveTrial = () => async dispatch => {
     try {
         dispatch({
-            type: RULINGS
+            type: ACTIVE_TRIAL
         });
 
-        const res = await getRulings(); 
+        const res = await getActiveTrial(); 
         
         dispatch({
-            type: RULINGS_SUCCESS,
+            type: ACTIVE_TRIAL_SUCCESS,
             payload: res
         });
     } catch (e) {
         dispatch({
-            type: RULINGS_ERROR,
+            type: ACTIVE_TRIAL_ERROR,
             error: e
         })
     }
 };
 
-export const actUpdateRuling = (id, data) => async dispatch => {
+
+export const actGetTrials = () => async dispatch => {
     try {
         dispatch({
-            type: RULINGS
+            type: TRIALS
+        });
+        dispatch({
+            type: ACTIVE_TRIAL
         });
 
-        await updateRuling(id, data); 
-        const res = await getRulings(); 
+        const res = await getTrials(); 
+        const a = await getActiveTrial(); 
 
         dispatch({
-            type: RULINGS_SUCCESS,
-            payload: res.data
+            type: TRIALS_SUCCESS,
+            payload: res
+        });
+        dispatch({
+            type: ACTIVE_TRIAL_SUCCESS,
+            payload: a
+        });
+        
+    } catch (e) {
+        dispatch({
+            type: TRIALS_ERROR,
+            error: e
+        })
+    }
+};
+
+export const actUpdateTrial= (id, data) => async dispatch => {
+    try {
+        dispatch({
+            type: ACTIVE_TRIAL
+        });
+
+        await updateTrial(id, data); 
+        const res = await getActiveTrial();
+
+        dispatch({
+            type: ACTIVE_TRIAL_SUCCESS,
+            payload: data
         });
 
     } catch (e) {
         dispatch({
-            type: RULINGS_ERROR,
+            type: ACTIVE_TRIAL_ERROR,
             error: e
         })
     }
