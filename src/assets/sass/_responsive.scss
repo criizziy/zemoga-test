@@ -1,0 +1,73 @@
+@media (max-width: 768px) {
+
+    #header{ 
+        .shadow{
+            height: 150px;
+        }
+        .logo{
+            height: 10px;
+        }
+        .nav{
+            width: 60%;
+            justify-content: flex-end;
+        }
+    }
+
+    #banner {
+        .voted__wrapper,
+        .opinion{
+            width: 90%;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%,-50%);
+        }
+        .voted__qualification div p{
+            font-size: 25px;
+        }
+    }
+
+    .speaker{
+        flex-direction: column;
+        position: relative;
+        &__title{
+            width: 93%;
+        }
+        &__close{
+            position: absolute;
+            right: 5%;
+            top: 0;
+            z-index: 2;
+        }
+    }
+
+    #rulingBox {
+        .ruling{
+            width: 100%;
+        }
+    }
+
+    .submit_name{
+        flex-direction: column;
+        p{
+            margin: 0 0 20px 0;
+        }
+    }
+
+    .footer{
+        flex-direction: column;
+    }
+
+    #comments {
+        .filters__options {
+            flex-wrap: wrap;
+            li{
+                margin: 10px 15px;
+            }
+        }
+        .comment {
+            width: 100%;
+            margin-bottom: 30px;
+        }
+    }
+
+}

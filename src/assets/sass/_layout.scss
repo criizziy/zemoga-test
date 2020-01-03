@@ -300,6 +300,8 @@
         &__close{
             font-size: 30px;
             font-weight: 100;
+            background: transparent;
+            border: none;
         }
 
     }
@@ -556,14 +558,18 @@
                 }
                 .like{
                     color: #1cbbb4;
-                    background: transparent;
                 }
                 .dislike{
                     color: #ffad1d;
-                    background: transparent;
                 }
                 .karma{
                     color: #ca6fc3;
+                }
+                .karma,
+                .dislike,
+                .like{
+                    background: transparent;
+                    border: none;
                 }
             }
         }

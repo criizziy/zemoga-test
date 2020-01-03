@@ -11,6 +11,7 @@ class Home extends Component {
     constructor(props) {
         super(props);
         this.state = {
+            speaker:true
         };
     }
 
@@ -33,6 +34,7 @@ class Home extends Component {
                                 <Comments/>
                             )}
                             
+                            {this.state.speaker && (
                             <div className="speaker">
                                 <h2 className="speaker__title">
                                     Speak out. Be heard. 
@@ -41,8 +43,9 @@ class Home extends Component {
                                 <p className="speaker__txt">
                                     Rule of Thumb is a crowd sourced court of public opinion where anyone and everyone can speak out and speak freely. It’s easy: You share your opinion, we analyze and put the data in a public report.
                                 </p>
-                                <button className="speaker__close">x</button>
+                                <button onClick={()=> this.setState({speaker:false})} className="speaker__close">x</button>
                             </div>
+                            )}
 
                             <h2 className="title">Previous Rulings</h2>
                             <RulingBox />
