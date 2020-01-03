@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import {actGetRulings} from '../../actions/content';
 import {connect} from 'react-redux';
 import Header from '../../components/header'
+import Footer from '../../components/footer'
 import Banner from '../../components/banner'
 import RulingBox from '../../components/rulingBox'
 
@@ -24,7 +25,6 @@ class Home extends Component {
                         <Header/>
                     </div>
                     <div className='col-12 p-0'>
-                        
                         <Banner/>
                         <div className="content_wrapper">
                             <div className="speaker">
@@ -40,14 +40,15 @@ class Home extends Component {
 
                             <h2 className="title">Previous Rulings</h2>
                             <RulingBox />
+
+                            <div className="submit_name">
+                                <p>Is there anyone else you would want us to add?</p>
+                                <button>Submit a Name</button>
+                            </div>
+                            
+                            <Footer/>
                         </div>
-
-
                     </div>
-                    <div className='col-12'>
-                        footer
-                    </div>
-
                 </div>
             </div>
         );

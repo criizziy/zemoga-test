@@ -309,3 +309,62 @@
     }
 }
 /* end rulings */
+
+
+/*submit name*/
+.submit_name{
+    background-image: url('../../assets/img/background_f.jpg');
+    background-size: cover;
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 5%;
+    color: #333333;
+    align-items: center;
+    p{
+        margin: 0 20px 0 0;
+        font-size: 20px;
+        font-weight: 300;
+    }
+    button{
+        border: solid 2px #333333;
+        padding: 7px 20px;
+    }
+}
+/*end submit name*/
+
+/* footer */
+.footer{
+    display: flex;
+    justify-content: space-between;
+    border-top: dashed 1px #d8d8d8;
+    padding-top: 10px;
+    margin-top: 30px;
+    ul{
+        list-style: none;
+        padding: 0;
+        display: flex;
+    }
+
+    &__nav{
+        a{
+            font-size: 12px;
+            margin-right:10px;
+            font-weight: 300;
+            color: #333333;
+        }
+    }
+
+    &__social_networks {
+        color: #333333;
+        img{
+            height: 20px; 
+            margin: 0 0 0 20px;
+        }
+        li{
+            font-weight: 300;
+            font-size: 12px;
+        }
+    }
+
+}
+/* end footer */
