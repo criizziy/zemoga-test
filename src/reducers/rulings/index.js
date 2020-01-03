@@ -12,7 +12,7 @@ const state = {
     }
 };
 
-export const turns = createReducer(state, {
+export const rulings = createReducer(state, {
     [RULINGS](state, action) {
         return {
             ...state,
@@ -27,31 +27,6 @@ export const turns = createReducer(state, {
         }
     },
     [RULINGS_ERROR](state, action) {
-        return {
-            ...state,
-            isFetching: false,
-            error: true,
-            errorM: action.error
-        }
-    },
-});
-
-
-export const atTurns = createReducer(state, {
-    [AT_TURNS](state, action) {
-        return {
-            ...state,
-            isFetching: true
-        }
-    },
-    [AT_TURNS_SUCCESS](state, action) {
-        return {
-            ...state,
-            isFetching: false,
-            data: action.payload
-        }
-    },
-    [AT_TURNS_ERROR](state, action) {
         return {
             ...state,
             isFetching: false,

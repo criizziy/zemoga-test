@@ -1,7 +1,7 @@
 import axios from 'axios';
 import Auth from './auth';
 import Rulings from './rulings';
-import {user} from "../utils/storage";
+import {user} from "../storage";
 
 
 axios.defaults.baseURL = '';

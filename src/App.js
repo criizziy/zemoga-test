@@ -3,7 +3,7 @@ import logo from './logo.svg';
 import 'bootstrap/dist/css/bootstrap.min.css'
 import './dist/css/main.css';
 import Home from './pages/home/home';
-import {actGetUser} from './actions/auth';
+import {actGetRulings} from './actions/content';
 import {connect} from 'react-redux';
 import Loading from './components/loading';
 
@@ -14,7 +14,7 @@ class App extends Component {
   }
 
   async componentDidMount(){
-    await this.props.actGetContent();
+    await this.props.actGetRulings();
   }
 
   render() {
@@ -30,14 +30,14 @@ function mapStateToProps(state) {
   console.log(state)
   return {
     user: state.login.user,
-    isFetching: state.login.isFetching,
+    isFetching: state.rulings.isFetching,
   }
 }
 
 function mapDispatchToProps(dispatch) {
   return {
-    actGetContent: () => {
-      dispatch(actGetContent(dispatch))
+    actGetRulings: () => {
+      dispatch(actGetRulings(dispatch))
     }
   }
 }

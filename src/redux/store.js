@@ -1,4 +1,4 @@
-import {createStore, applyMiddleware} from 'redux';
+import {createStore, applyMiddleware, compose} from 'redux';
 import { AsyncStorage } from 'AsyncStorage';
 import thunk from 'redux-thunk';
 import logger from 'redux-logger';
@@ -23,11 +23,13 @@ let middleware = [thunk];
 
 
 export default ()=>{
-  let store = createStore(
-      persistReduce,
-      window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__(),
-      applyMiddleware(...middleware)
-  );
+    const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+    let store = createStore(
+        persistReduce,
+        composeEnhancer(
+            applyMiddleware(...middleware), /* enhancer(middleware) */
+        )
+    );
     let persistor = persistStore(store);
     return {store, persistor }
 };
